@@ -1,0 +1,19 @@
+{
+  "name": "beerflix",
+  "version": "1.0.0",
+  "description": "A web application about Beer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Frontend",
+    "Sass",
+    "Html",
+    "Webpack",
+    "Javascript",
+    "Beer"
+  ],
+  "author": "Sabrina Fernandez Zambrano",
+  "license": "ISC"
+}
