@@ -6,12 +6,12 @@ const { getBeers } = api();
 const beerList = document.getElementById('beers-list');
 const defaultPicture = './../images/default.jpg'
 
-const beers = async () => {
+const showBeers = async (query) => {
     try{
-        let beers = await getBeers();
-        console.log(beers)
+        let beers = await getBeers(query);
+        beerList.innerHTML = '';
         beers.map((beer) => {
-            let templateBeer = renderBeers(beer);
+            let templateBeer = renderBeers(beer);           
             beerList.innerHTML += templateBeer;
         })
     }   
@@ -20,7 +20,7 @@ const beers = async () => {
     }
 }
 
-beers();
+showBeers();
 
 const renderBeers = ({name, description, image, ingredients, likes, comments, price}) => (
     `
@@ -93,4 +93,6 @@ const renderIngredients = (type) => {
 }
 
 
-
+export {
+    showBeers
+}

@@ -1,8 +1,11 @@
-const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh/api/v1') => {
+'use script';
+
+const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh/api/v1/beers') => {
     return {
-        getBeers: async () => {
+        getBeers: async (query) => {
             try {
-                let response = await fetch(API_URL + '/beers', {
+                let url = query ? API_URL+'?search='+query+'&limit=10': API_URL;
+                let response = await fetch(url, {
                     method: 'GET',
                     headers: {
                         "Content-Type": "application/json",

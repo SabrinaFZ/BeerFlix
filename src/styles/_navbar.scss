@@ -30,7 +30,7 @@ nav {
             }
             
             .fa-search {
-                display: none;
+                display: block;
             }
             
             @include desktop {
@@ -63,7 +63,7 @@ nav {
             .fa-search {
                 display: block;
             }
-
+            
             @include desktop {
                 #search-bar {
                     display: block;
@@ -72,9 +72,9 @@ nav {
                 .fa-times {
                     display: none;
                 }
-
+                
                 .fa-search {
-                    display: none;
+                    display: block;
                 }
             }
             
@@ -86,9 +86,9 @@ nav {
                 .fa-times {
                     display: none;
                 }
-
+                
                 .fa-search {
-                    display: none;
+                    display: block;
                 }
             }
         }
@@ -110,18 +110,12 @@ nav {
             font-size: $icon-font-size;
         }
         
-        .fa-search {
-            display: block;
-            
-            @include desktop {
-                display: none;
-            }
-            
-            @include largeDesktop {
-                display: none;
-            }
-            
+        #search-button{
+            background: none;
+            margin-left: 0.5rem;
             font-size: $icon-font-size;
+            border: 0;
+            outline: none;
         }
         
     } 
