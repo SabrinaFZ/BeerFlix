@@ -1,0 +1,17 @@
+main {
+    padding: 2rem;
+}
+
+@include desktop{
+    main{
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
+}
+
+@include largeDesktop{
+    main{
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
+}
