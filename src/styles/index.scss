@@ -1,0 +1,13 @@
+@import "variables";
+@import "responsive";
+@import "reset";
+@import "navbar";
+
+*, h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: $primary-font-size;
+    color: $primary-color-text;
+}
+
+
+

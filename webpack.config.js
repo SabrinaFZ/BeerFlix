@@ -7,35 +7,27 @@ module.exports = {
     mode: 'development',
     devtool: 'source-map',
     devServer: {
-        contentBase: path.join(__dirname, 'src'),
+        contentBase: [
+            path.join(__dirname, 'src'),
+            path.join(__dirname, 'src', 'templates'),
+        ],
         hot: true,
         port: 8080,
         open:true,
+        overlay: true,
         watchContentBase: true
     },
-    entry: path.join(__dirname, 'src', 'index.ts'),
+    entry: path.join(__dirname, 'src', 'index.js'),
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
-    resolve: {
-        extensions: ['.ts', '.tsx', '.js']
-    },
     module: {
         rules: [
-            {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/
-            },
             {
                 test: /\.js$/,
                 use: 'babel-loader',
                 exclude: /node_modules/
-            },
-            {
-                test: /\.html$/,
-                use: 'html-loader'
             },
             {
                 test: /\.scss$/,
@@ -62,6 +54,7 @@ module.exports = {
             template: path.join(__dirname, 'src', 'index.html')
         }),
         new CleanWebpackPlugin(['dist']),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.ProgressPlugin
     ]
 }

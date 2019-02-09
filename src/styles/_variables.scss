@@ -1,0 +1,16 @@
+$primary-color: #FEDE4C;
+$primary-color-light: #FFF0AA;
+$primary-color-dark: #FFD200;
+
+$primary-color-text: #303030;
+
+$primary-font-size: 1rem;
+$primary-font-size-small: $primary-font-size - .2rem;
+
+$header-font-size: $primary-font-size + 1rem;
+$logo-font-size: $header-font-size + 1rem;
+$icon-font-size: $primary-font-size + .8rem;
+
+$tablet-width: 768px;
+$desktop-width: 992px;
+$large-desktop-width: 1024px;
