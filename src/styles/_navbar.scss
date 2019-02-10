@@ -12,7 +12,7 @@ nav {
     #nav-logo {
         display: flex;
         align-items: center;
-        font-size: $logo-font-size;
+        font-size: $logo-font-size-small;
         color: $primary-color-text;
         .fa-beer{
             margin-right: 0.5rem;
@@ -21,6 +21,19 @@ nav {
         h1{
             font-size: $header-font-size;
             font-weight: 700;
+            display: none;
+            
+            @include tablet{
+                display: block;
+            }
+            
+            @include desktop{
+                display: block;
+            }
+            
+            @include largeDesktop{
+                display: block;
+            }
         }
     }
     
@@ -105,6 +118,18 @@ nav {
             border-radius: 0.2rem; 
             padding: 0.2rem;
             border: 0.1rem solid $primary-color-light;
+            
+            @include tablet{
+                width: 100%;
+            }
+            
+            @include desktop{
+                width: 100%;
+            }
+            
+            @include largeDesktop{
+                width: 100%;
+            }
         }
         
         .fa-times {
