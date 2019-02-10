@@ -1,0 +1,174 @@
+.container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;  
+    grid-template-areas: 
+    ".beer-img .beer-info";
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 0.2rem;
+    align-items: center;
+    
+    .beer-img{
+        img {
+            display: block;
+            width: 50%;
+            margin: 0 auto;
+        }        
+    }
+    
+    .beer-info{
+        padding: 1rem;
+        background: $primary-color-light;
+        div:nth-last-child(n+3){
+            margin-bottom: 1rem;
+        }
+        
+        h3 {
+            font-size: $subheader-h3-font-size;
+            font-weight: 700;
+        }
+        
+        .beer-name{
+            h2 {
+                font-size: $subheader-h2-font-size;
+                font-weight: 700;
+            }
+        }
+        .beer-desc {
+            p{
+                line-height: 1.2rem;
+                font-size: $primary-font-size-small;
+            }
+        }
+        .beer-ingredients{
+            line-height: 1.2rem;
+            
+            ul {
+                margin-left: 1rem;
+            }
+            
+            li {
+                font-size: $primary-font-size-small;
+            }
+            .fa-circle {
+                margin-right: 0.2rem;
+                font-size: $icon-circle-font-size;
+            }
+        }
+        
+        .beer-price{
+            p{
+                margin-left: 1rem;  
+            }
+        }
+        
+        .beer-likes, .beer-comments{
+            display: inline-block;
+            width: 48%;
+            text-align: center;
+            .fas {
+                cursor: pointer;
+                transition: all .1s ease-in-out;
+                
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        
+        .beer-info {
+            display: block;
+        }
+        
+    }
+    
+    @include tablet {
+        padding: 2rem;
+        grid-template-columns: 10rem auto;
+        .beer-img{
+            img {
+                width: 80%;
+            }        
+        }
+        .beer-info{
+            .beer-desc {
+                p{
+                    font-size: $primary-font-size;
+                }
+            }
+            
+            .beer-ingredients{
+                
+                li {
+                    font-size: $primary-font-size;
+                }
+                .fa-circle {
+                    margin-right: 0.5rem;
+                    font-size: $icon-circle-font-size;
+                }
+            }
+        }
+        
+        
+    }
+    
+    @include desktop {
+        padding: 2rem;
+        grid-template-columns: 10rem auto;
+        .beer-img{
+            img {
+                width: 80%;
+            }        
+        }
+        .beer-info{
+            .beer-desc {
+                p{
+                    font-size: $primary-font-size;
+                }
+            }
+            
+            .beer-ingredients{
+                
+                li {
+                    font-size: $primary-font-size;
+                }
+                .fa-circle {
+                    margin-right: 0.5rem;
+                    font-size: $icon-circle-font-size;
+                }
+            }
+        }
+        
+        
+    }
+    
+    @include largeDesktop {
+        padding: 2rem;
+        grid-template-columns: 10rem auto;
+        .beer-img{
+            img {
+                width: 80%;
+            }        
+        }
+
+        .beer-info{
+            .beer-desc {
+                p{
+                    font-size: $primary-font-size;
+                }
+            }
+            
+            .beer-ingredients{
+                
+                li {
+                    font-size: $primary-font-size;
+                }
+                .fa-circle {
+                    margin-right: 0.5rem;
+                    font-size: $icon-circle-font-size;
+                }
+            }
+        }
+    }
+}

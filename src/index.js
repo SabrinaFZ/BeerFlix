@@ -7,6 +7,8 @@ import './js/navbar';
 import './js/beers';
 import './js/comments';
 import './js/likes';
+import './js/moreInfo';
+import './js/detail_beer';
 
 // import images
 import './images/default.jpg';
