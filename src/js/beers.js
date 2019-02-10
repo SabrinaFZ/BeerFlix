@@ -1,6 +1,7 @@
 'use script';
 
 import api from './api';
+import { postLikes } from './likes';
 
 const { getBeers } = api();
 const beerList = document.getElementById('beers-list');
@@ -9,11 +10,16 @@ const defaultPicture = './../images/default.jpg'
 const showBeers = async (query) => {
     try{
         let beers = await getBeers(query);
+        let beerIdList = [];
         beerList.innerHTML = '';
         beers.map((beer) => {
             let templateBeer = renderBeers(beer);           
             beerList.innerHTML += templateBeer;
-        })
+            beerIdList.push(beer.beerId);
+        });
+
+        const likesElements = document.querySelectorAll('.beer-likes');
+        postLikes(likesElements, beerIdList);
     }   
     catch(e){
         console.error(e);
@@ -22,13 +28,13 @@ const showBeers = async (query) => {
 
 showBeers();
 
-const renderBeers = ({name, description, image, ingredients, likes, comments, price}) => (
+const renderBeers = ({beerId, name, description, image, ingredients, likes, comments, price}) => (
     `
         <div class="container">
         <div class="beer-img">
             <img src="${image ? image : defaultPicture}" alt="${name}_img" srcset="">
         </div>
-        <div class="beer-info">
+        <div class="beer-info" id="${beerId}">
             <div class="beer-name">
                 <h2>${name}</h2>
             </div>
