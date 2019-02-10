@@ -12,7 +12,6 @@ const showMore = async (links) =>{
             let id = link.href.split('/').slice(-1)[0];
             try {
                 let beer = await getBeerInfo(id);
-                console.log(beer);
                 await renderBeerInfo(beer);
             } catch (e) {
                 console.error(e);

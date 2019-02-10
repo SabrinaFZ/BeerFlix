@@ -3,19 +3,21 @@
     grid-template-columns: auto auto;
     grid-template-rows: auto;  
     grid-template-areas: 
-    ".beer-img .beer-info";
+    ".go-back-button .beer-info";
     padding: 1rem;
     margin-bottom: 2rem;
     border-radius: 0.2rem;
     align-items: center;
-    
-    .beer-img{
-        img {
-            display: block;
-            width: 50%;
-            margin: 0 auto;
-        }        
+
+    .go-back-button{
+        padding-right: 1rem;
+        align-self: center;
+        justify-self: center;
+        a{
+            font-size: $logo-font-size;
+        }
     }
+    
     
     .beer-info{
         padding: 1rem;
@@ -86,11 +88,7 @@
     @include tablet {
         padding: 2rem;
         grid-template-columns: 10rem auto;
-        .beer-img{
-            img {
-                width: 80%;
-            }        
-        }
+        
         .beer-info{
             .beer-desc {
                 p{
@@ -116,11 +114,7 @@
     @include desktop {
         padding: 2rem;
         grid-template-columns: 10rem auto;
-        .beer-img{
-            img {
-                width: 80%;
-            }        
-        }
+        
         .beer-info{
             .beer-desc {
                 p{
@@ -146,11 +140,6 @@
     @include largeDesktop {
         padding: 2rem;
         grid-template-columns: 10rem auto;
-        .beer-img{
-            img {
-                width: 80%;
-            }        
-        }
 
         .beer-info{
             .beer-desc {

@@ -17,7 +17,7 @@ const showBeers = async (query) => {
         });
 
         const moreInfoButton = document.querySelectorAll('.beer-more-info a');
-        showMore(moreInfoButton);
+        await showMore(moreInfoButton);
     }   
     catch(e){
         console.error(e);

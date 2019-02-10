@@ -1,24 +1,30 @@
 'use script';
 
 import { postLikes } from './likes';
+import { goBack } from './goBackButton';
 
 const defaultPicture = './../images/default.jpg'
 
-const renderBeerInfo = (beer) => {
-    let beerInfo = document.querySelector('main');
+const renderBeerInfo = async (beer) => {
+    let beerList, beerInfo;
+    beerInfo = document.querySelector('main');
+    beerList = document.querySelector('#beers-list');
     let template = renderTemplate(beer);
-    console.log(template)
     beerInfo.innerHTML = '';
     beerInfo.innerHTML = template;
     const like = document.querySelector('.beer-likes');
-    postLikes(like, beer);
+    const goBackButton = document.querySelector('.go-back-button');
+    goBack(goBackButton, beerList);
+    await postLikes(like, beer);
 }
 
 const renderTemplate = ({ name, image, description, ingredients, price, likes, comments}) => (
 `
     <div class="container">
-        <div class="beer-img">
-            <img src="${image ? image : defaultPicture}" alt="${name}_img" srcset="">
+        <div class="go-back-button">
+            <a>
+                <i class="fas fa-chevron-left"></i>
+            </a>
         </div>
         <div class="beer-info">
             <div class="beer-name">
