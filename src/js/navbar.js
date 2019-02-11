@@ -34,3 +34,6 @@ const toggle = (element) => (previousClass, nextClass) => {
 
 const toggleNavbar = toggle(navSearch);
 
+export {
+    toggleNavbar
+};

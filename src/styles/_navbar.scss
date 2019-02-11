@@ -38,6 +38,14 @@ nav {
     }
     
     #nav-search {
+
+        &.show {
+            display: block;
+        }
+
+        &.hidden {
+            display: none;
+        }
         
         &.open-search{
             #search-bar, .fa-times {
