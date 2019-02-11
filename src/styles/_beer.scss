@@ -1,3 +1,18 @@
+#no-beer-list{
+    text-align:center;
+    margin-top: 2rem;
+
+    i{
+        font-size: $logo-font-size*2;
+        padding: 2rem;
+    }
+
+    p{
+        font-size: $header-font-size;
+        font-weight: 800;
+    }
+}
+
 .container-principal {
     
     background: $primary-color-text;

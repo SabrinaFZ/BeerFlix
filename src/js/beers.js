@@ -11,13 +11,18 @@ const showBeers = async (query) => {
     try{
         let beers = await getBeers(query);
         beerList.innerHTML = '';
-        beers.map((beer) => {
-            let templateBeer = renderBeers(beer);           
-            beerList.innerHTML += templateBeer;
-        });
+        if(beers.length !== 0){
+            beers.map((beer) => {
+                let templateBeer = renderBeers(beer);
+                beerList.innerHTML += templateBeer;
+            });
 
-        const moreInfoButton = document.querySelectorAll('.beer-more-info a');
-        await showMore(moreInfoButton);
+            const moreInfoButton = document.querySelectorAll('.beer-more-info a');
+            await showMore(moreInfoButton);
+        } else{
+            let templateEmpty = renderEmpty();
+            beerList.innerHTML = templateEmpty;
+        }
     }   
     catch(e){
         console.error(e);
@@ -42,6 +47,15 @@ const renderBeers = ({beerId, name, image}) => (
             </div>
         
         </article>
+    `
+);
+
+const renderEmpty = () => (
+    `
+    <div id="no-beer-list">
+        <i class="far fa-frown"></i>
+        <p>No beers!</p>
+    </div>
     `
 );
 
