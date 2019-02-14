@@ -1,157 +1,167 @@
+picture  {
+    img{
+        max-width: 100%;
+        width: 100%;
+        height: 15%;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+}
+
 // nav styles
 nav {
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: $primary-color;
-    padding: 0.8rem;
-    background-size: cover;
-    background: url('./../images/bg-default.jpg');
-    
-    #nav-logo {
+
+    #navbar-items{
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        font-size: $logo-font-size-small;
-        color: $primary-color-text;
-        .fa-beer{
-            margin-right: 0.5rem;
-        }
+        padding: 0.8rem;
         
-        h1{
-            font-size: $header-font-size;
-            font-weight: 700;
-            display: none;
-            
-            @include tablet{
-                display: block;
+        #nav-logo {
+            display: flex;
+            align-items: center;
+            font-size: $logo-font-size-small;
+            color: $primary-color-text;
+            .fa-beer{
+                margin-right: 0.5rem;
             }
             
-            @include desktop{
-                display: block;
-            }
-            
-            @include largeDesktop{
-                display: block;
-            }
-        }
-    }
-    
-    #nav-search {
-
-        &.show {
-            display: block;
-        }
-
-        &.hidden {
-            display: none;
-        }
-        
-        &.open-search{
-            #search-bar, .fa-times {
-                display: block;
-            }
-            
-            .fa-search {
-                display: block;
-            }
-            
-            @include desktop {
-                #search-bar {
+            h1{
+                font-size: $header-font-size;
+                font-weight: 700;
+                display: none;
+                
+                @include tablet{
                     display: block;
                 }
                 
-                .fa-times {
-                    display: none;
-                }
-            }
-            
-            @include largeDesktop {
-                #search-bar {
+                @include desktop{
                     display: block;
                 }
                 
-                .fa-times {
-                    display: none;
+                @include largeDesktop{
+                    display: block;
                 }
             }
-            
         }
         
-        &.close-search {
-            #search-bar, .fa-times {
+        #nav-search {
+
+            &.show {
+                display: block;
+            }
+
+            &.hidden {
                 display: none;
             }
             
-            .fa-search {
-                display: block;
-            }
-            
-            @include desktop {
-                #search-bar {
+            &.open-search{
+                #search-bar, .fa-times {
                     display: block;
                 }
                 
-                .fa-times {
+                .fa-search {
+                    display: block;
+                }
+                
+                @include desktop {
+                    #search-bar {
+                        display: block;
+                    }
+                    
+                    .fa-times {
+                        display: none;
+                    }
+                }
+                
+                @include largeDesktop {
+                    #search-bar {
+                        display: block;
+                    }
+                    
+                    .fa-times {
+                        display: none;
+                    }
+                }
+                
+            }
+            
+            &.close-search {
+                #search-bar, .fa-times {
                     display: none;
                 }
                 
                 .fa-search {
                     display: block;
                 }
-            }
-            
-            @include largeDesktop {
-                #search-bar {
-                    display: block;
+                
+                @include desktop {
+                    #search-bar {
+                        display: block;
+                    }
+                    
+                    .fa-times {
+                        display: none;
+                    }
+                    
+                    .fa-search {
+                        display: block;
+                    }
                 }
                 
-                .fa-times {
-                    display: none;
+                @include largeDesktop {
+                    #search-bar {
+                        display: block;
+                    }
+                    
+                    .fa-times {
+                        display: none;
+                    }
+                    
+                    .fa-search {
+                        display: block;
+                    }
+                }
+            }
+            
+            
+            form {
+                display: flex;
+                align-items: center;
+            }
+            
+            #search-bar {
+                border-radius: 0.2rem; 
+                padding: 0.2rem;
+                border: 0.1rem solid $primary-color-light;
+                
+                @include tablet{
+                    width: 100%;
                 }
                 
-                .fa-search {
-                    display: block;
+                @include desktop{
+                    width: 100%;
+                }
+                
+                @include largeDesktop{
+                    width: 100%;
                 }
             }
-        }
-        
-        
-        form {
-            display: flex;
-            align-items: center;
-        }
-        
-        #search-bar {
-            border-radius: 0.2rem; 
-            padding: 0.2rem;
-            border: 0.1rem solid $primary-color-light;
             
-            @include tablet{
-                width: 100%;
+            .fa-times {
+                margin-left: 0.5rem;
+                font-size: $icon-font-size;
             }
             
-            @include desktop{
-                width: 100%;
+            #search-button{
+                background: none;
+                margin-left: 0.5rem;
+                font-size: $icon-font-size;
+                border: 0;
+                outline: none;
             }
             
-            @include largeDesktop{
-                width: 100%;
-            }
-        }
-        
-        .fa-times {
-            margin-left: 0.5rem;
-            font-size: $icon-font-size;
-        }
-        
-        #search-button{
-            background: none;
-            margin-left: 0.5rem;
-            font-size: $icon-font-size;
-            border: 0;
-            outline: none;
-        }
-        
-    } 
+        }     
+    }
 }

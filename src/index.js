@@ -12,4 +12,6 @@ import './js/detail_beer';
 
 // import images
 import './images/default.jpg';
-import './images/bg-default.jpg';
+import './images/bg-default-1280.jpg';
+import './images/bg-default-800.jpg';
+import './images/bg-default-320.jpg';

@@ -1,15 +1,26 @@
-<div id="nav-logo">
-    <i class="fas fa-beer"></i>
-    <h1>BeerFlix</h1>
-</div>
-<div id="nav-search" class="show close-search">
-    <form id="search-form">
-        <input id="search-bar" placeholder="search a beer..." />
-        <a>
-            <i class="fas fa-times"></i>
-        </a>
-        <button id="search-button" type="submit">
-            <i class="fas fa-search"></i>
-        </button>
-    </form>
+<picture>
+    <source srcset=
+    "./../images/bg-default-1280.jpg 1280w"  
+    media="(min-width: 768px)">
+    <source srcset="./../images/bg-default-800.jpg 800w"
+    media="(min-width: 800px)" >
+    <source srcset="" media="(min-width: 320px)">
+    <img src="./../images/bg-default-320.jpg" alt="navbar_bg"/>
+</picture>
+<div id="navbar-items">
+    <div id="nav-logo">
+        <i class="fas fa-beer"></i>
+        <h1>BeerFlix</h1>
+    </div>
+    <div id="nav-search" class="show close-search">
+        <form id="search-form">
+            <input id="search-bar" placeholder="search a beer..." />
+            <a>
+                <i class="fas fa-times"></i>
+            </a>
+            <button id="search-button" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
 </div>
