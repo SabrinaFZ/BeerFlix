@@ -32,11 +32,11 @@ const showBeers = async (query) => {
 
 showBeers();
 
-const render = async (beers) => {
-    localStorage.setItem('beers', JSON.stringify(beers));
+const render = async (beers) => {;
     beerList.innerHTML = '';
     try{
         if (beers.length !== 0) {
+            localStorage.setItem('beers', JSON.stringify(beers))
             beers.map((beer) => {
                 let templateBeer = getTemplateBeers(beer);
                 beerList.innerHTML += templateBeer;
