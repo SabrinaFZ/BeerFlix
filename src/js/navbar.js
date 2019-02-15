@@ -1,6 +1,7 @@
 'use script';
 
 import {showBeers} from './beers';
+import {cleanSelector} from './yearPicker';
 
 
 const navSearch = document.querySelector('#nav-search');
@@ -23,6 +24,7 @@ searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     if (searchBar.value !== ''){
         showBeers(searchBar.value);
+        cleanSelector();
     }    
 })
 

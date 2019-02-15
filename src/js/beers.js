@@ -10,19 +10,8 @@ const defaultPicture = './../images/default.jpg'
 const showBeers = async (query) => {
     try{
         let beers = await getBeers(query);
-        beerList.innerHTML = '';
-        if(beers.length !== 0){
-            beers.map((beer) => {
-                let templateBeer = renderBeers(beer);
-                beerList.innerHTML += templateBeer;
-            });
-
-            const moreInfoButton = document.querySelectorAll('.beer-more-info a');
-            await showMore(moreInfoButton);
-        } else{
-            let templateEmpty = renderEmpty();
-            beerList.innerHTML = templateEmpty;
-        }
+        localStorage.setItem('beers', JSON.stringify(beers));
+        render(beers);
     }   
     catch(e){
         console.error(e);
@@ -30,6 +19,22 @@ const showBeers = async (query) => {
 }
 
 showBeers();
+
+const render = async (beers) => {
+    beerList.innerHTML = '';
+    if (beers.length !== 0) {
+        beers.map((beer) => {
+            let templateBeer = renderBeers(beer);
+            beerList.innerHTML += templateBeer;
+        });
+
+        const moreInfoButton = document.querySelectorAll('.beer-more-info a');
+        await showMore(moreInfoButton);
+    } else {
+        let templateEmpty = renderEmpty();
+        beerList.innerHTML = templateEmpty;
+    }
+}
 
 const renderBeers = ({beerId, name, image}) => (
     `
@@ -60,5 +65,6 @@ const renderEmpty = () => (
 );
 
 export {
-    showBeers
+    showBeers,
+    render
 }

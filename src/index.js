@@ -9,6 +9,7 @@ import './js/comments';
 import './js/likes';
 import './js/moreInfo';
 import './js/detail_beer';
+import './js/yearPicker';
 
 // import images
 import './images/default.jpg';
