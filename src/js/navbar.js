@@ -1,4 +1,4 @@
-'use script';
+'use strict';
 
 import {showBeers} from './beers';
 import {cleanSelector} from './yearPicker';

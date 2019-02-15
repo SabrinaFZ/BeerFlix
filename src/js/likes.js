@@ -1,4 +1,4 @@
-'use script';
+'use strict';
 
 import api from './api';
 

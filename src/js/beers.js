@@ -1,4 +1,4 @@
-'use script';
+'use strict';
 
 import api from './api';
 import { showMore }  from './moreInfo';
@@ -23,7 +23,6 @@ const showBeers = async (query) => {
         let beers = await getBeers(query);
         toggleSpinner('show', 'hide');
         toggleBeers('hide', 'show');
-        localStorage.setItem('beers', JSON.stringify(beers));
         render(beers);
     }   
     catch(e){
@@ -34,19 +33,24 @@ const showBeers = async (query) => {
 showBeers();
 
 const render = async (beers) => {
+    localStorage.setItem('beers', JSON.stringify(beers));
     beerList.innerHTML = '';
-    if (beers.length !== 0) {
-        beers.map((beer) => {
-            let templateBeer = getTemplateBeers(beer);
-            beerList.innerHTML += templateBeer;
-        });
-
-        const moreInfoButton = document.querySelectorAll('.beer-more-info a');
-        await showMore(moreInfoButton);
-    } else {
-        let templateEmpty = getTemplateEmpty();
-        beerList.innerHTML = templateEmpty;
+    try{
+        if (beers.length !== 0) {
+            beers.map((beer) => {
+                let templateBeer = getTemplateBeers(beer);
+                beerList.innerHTML += templateBeer;
+            });
+            const moreInfoButton = document.querySelectorAll('.beer-more-info a');
+            await showMore(moreInfoButton);
+        } else {
+            let templateEmpty = getTemplateEmpty();
+            beerList.innerHTML = templateEmpty;
+        }
+    } catch(e){
+        console.error(e);
     }
+    
 }
 
 const getTemplateBeers = ({beerId, name, image}) => (
@@ -78,6 +82,7 @@ const getTemplateEmpty = () => (
 );
 
 export {
+    toggleBeers,
     showBeers,
     render
 }

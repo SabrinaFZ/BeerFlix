@@ -1,14 +1,19 @@
-'use script';
+'use strict';
 
 import { toggleNavbar } from './navbar';
+import { render, toggleBeers } from './beers';
 
-let beers = document.querySelector('main');
-
-const goBack = async (element, listBeers) => {
-    element.addEventListener('click', async () => {
-        beers.innerHTML = '';
-        beers.append(listBeers);
-        toggleNavbar('hidden', 'show');
+const goBack = async (element) => {
+    element.addEventListener('click', async() => {
+        try{
+            const detailBeer = document.getElementById('detail-beer');
+            detailBeer.parentNode.removeChild(detailBeer);
+            await render(JSON.parse(localStorage.getItem('beers')));
+            toggleBeers('hide', 'show');
+            toggleNavbar('hidden', 'show');
+        }catch(e){
+            console.error(e);
+        }
     });
 }
 
