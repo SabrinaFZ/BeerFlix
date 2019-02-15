@@ -2,14 +2,27 @@
 
 import api from './api';
 import { showMore }  from './moreInfo';
+import { toggleSpinner } from './spinner';
 
 const { getBeers } = api();
+const beersContainer = document.getElementById('beers');
 const beerList = document.getElementById('beers-list');
 const defaultPicture = './../images/default.jpg'
 
+const toggle = (element) => (previousClass, nextClass) => {
+    element.classList.remove(previousClass);
+    element.classList.add(nextClass);
+}
+
+const toggleBeers = toggle(beersContainer);
+
 const showBeers = async (query) => {
     try{
+        toggleBeers('show', 'hide');
+        toggleSpinner('hide', 'show');
         let beers = await getBeers(query);
+        toggleSpinner('show', 'hide');
+        toggleBeers('hide', 'show');
         localStorage.setItem('beers', JSON.stringify(beers));
         render(beers);
     }   
@@ -24,19 +37,19 @@ const render = async (beers) => {
     beerList.innerHTML = '';
     if (beers.length !== 0) {
         beers.map((beer) => {
-            let templateBeer = renderBeers(beer);
+            let templateBeer = getTemplateBeers(beer);
             beerList.innerHTML += templateBeer;
         });
 
         const moreInfoButton = document.querySelectorAll('.beer-more-info a');
         await showMore(moreInfoButton);
     } else {
-        let templateEmpty = renderEmpty();
+        let templateEmpty = getTemplateEmpty();
         beerList.innerHTML = templateEmpty;
     }
 }
 
-const renderBeers = ({beerId, name, image}) => (
+const getTemplateBeers = ({beerId, name, image}) => (
     `
         <article class="container-principal">
             <div class="beer-img">
@@ -55,7 +68,7 @@ const renderBeers = ({beerId, name, image}) => (
     `
 );
 
-const renderEmpty = () => (
+const getTemplateEmpty = () => (
     `
     <div id="no-beer-list">
         <i class="far fa-frown"></i>

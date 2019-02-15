@@ -28,7 +28,6 @@ searchForm.addEventListener('submit', (e) => {
     }    
 })
 
-
 const toggle = (element) => (previousClass, nextClass) => {
     element.classList.remove(previousClass);
     element.classList.add(nextClass);

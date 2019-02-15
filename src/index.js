@@ -10,6 +10,7 @@ import './js/likes';
 import './js/moreInfo';
 import './js/detail_beer';
 import './js/yearPicker';
+import './js/spinner';
 
 // import images
 import './images/default.jpg';
