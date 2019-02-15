@@ -21,6 +21,8 @@ const showBeers = async (query) => {
         toggleBeers('show', 'hide');
         toggleSpinner('hide', 'show');
         let beers = await getBeers(query);
+        localStorage.setItem('beers', JSON.stringify(beers));
+        localStorage.removeItem('currentBeers');
         toggleSpinner('show', 'hide');
         toggleBeers('hide', 'show');
         render(beers);
@@ -36,7 +38,6 @@ const render = async (beers) => {;
     beerList.innerHTML = '';
     try{
         if (beers.length !== 0) {
-            localStorage.setItem('beers', JSON.stringify(beers))
             beers.map((beer) => {
                 let templateBeer = getTemplateBeers(beer);
                 beerList.innerHTML += templateBeer;

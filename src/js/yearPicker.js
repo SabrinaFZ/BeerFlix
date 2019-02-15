@@ -8,6 +8,7 @@ selectorDate.addEventListener('change', () => {
     let yearSelected = selectorDate.value;
     if (yearSelected !== ''){
         let selectedBeers = filterByDate(yearSelected);
+        localStorage.setItem('currentBeers', JSON.stringify(selectedBeers));
         render(selectedBeers);
     }
 });
