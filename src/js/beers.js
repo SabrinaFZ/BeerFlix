@@ -7,7 +7,7 @@ import { toggleSpinner } from './spinner';
 const { getBeers } = api();
 const beersContainer = document.getElementById('beers');
 const beerList = document.getElementById('beers-list');
-const defaultPicture = './../images/default.jpg'
+const defaultPicture = '/images/default.jpg'
 
 const toggle = (element) => (previousClass, nextClass) => {
     element.classList.remove(previousClass);

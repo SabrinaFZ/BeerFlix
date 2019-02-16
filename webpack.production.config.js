@@ -19,7 +19,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '[name].production.[ext]'
+                            name: '/images/[name].[ext]'
                         }
                     }
                 ]
