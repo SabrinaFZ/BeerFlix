@@ -1,10 +1,12 @@
 'use strict';
 
 import { postLikes } from './likes';
+import { postComments, toggle } from './comments';
 import { goBack } from './goBackButton';
 import {toggleBeers} from './beers';
 
 const main = document.querySelector('main');
+
 
 const renderBeerInfo = async (beer) => {
     let template = renderTemplate(beer);
@@ -12,15 +14,35 @@ const renderBeerInfo = async (beer) => {
     element.setAttribute('id', 'detail-beer')
     element.innerHTML = template;
     toggleBeers('show','hide');
-    main.append(element);    
-    const like = document.querySelector('.beer-likes');
-    const goBackButton = document.querySelector('.go-back-button');
-    goBack(goBackButton);
-    await postLikes(like, beer);
-    
+    main.append(element);
+    addEvents(beer);    
 }
 
-const renderTemplate = ({ name, description, ingredients, price, likes, comments}) => (
+const addEvents = (beer) => {
+    addLikesEvents(beer);
+    addGoBackEvent();
+    addCommentsEvents(beer);
+}
+
+const addLikesEvents = async(beer) => {
+    const likeButton = document.querySelector('.beer-likes');
+    await postLikes(likeButton, beer);
+}
+
+const addGoBackEvent = () => {
+    const goBackButton = document.querySelector('.go-back-button');
+    goBack(goBackButton);
+}
+
+const addCommentsEvents = async (beer) => {
+    const commentsButton = document.querySelector('.beer-comments');
+    const commentForm = document.querySelector('#beer-comments-form-textarea');
+    const commentsList = document.querySelector('.beer-comments-list');
+    toggle(commentsButton, commentsList);
+    await postComments(commentForm, beer, commentsList);
+}
+
+const renderTemplate = ({ name, description, ingredients, price, likes, comment}) => (
 `   
    <div class="container">
             <div class="go-back-button">
@@ -28,34 +50,43 @@ const renderTemplate = ({ name, description, ingredients, price, likes, comments
                     <i class="fas fa-chevron-left"></i>
                 </a>
             </div>
-            <div class="beer-info">
-                <div class="beer-name">
+            <section class="beer-info">
+                <article class="beer-name">
                     <h2>${name}</h2>
-                </div>
-                <div class="beer-desc">
+                </article>
+                <article class="beer-desc">
                     <p>
                         ${description}
                     </p>
-                </div>
-                <div class="beer-ingredients">
+                </article>
+                <article class="beer-ingredients">
                     <h3>Ingredients</h3>
                     <ul>
                         ${mapIngredients(ingredients)}
                     </ul>
-                </div>
-                <div class="beer-price">
+                </article>
+                <article class="beer-price">
                     <h3>Price</h3>
                     <p>${price} $</p>
-                </div>
-                <div class="beer-likes">
+                </article>
+                <article class="beer-likes">
                     <i class="fas fa-thumbs-up"></i>
                     <span>${likes}</span>
-                </div>
-                <div class="beer-comments">
+                </article>
+                <article class="beer-comments">
                     <i class="fas fa-comment"></i>
-                    <span>${comments.length}</span>
-                </div>
-            </div>
+                    <span>${comment.length}</span>
+                </article>
+                <article class="beer-comments-secondary">
+                    <h3>Comments</h3>
+                    <div class="beer-comments-form">
+                        <textarea id="beer-comments-form-textarea" rows "4" cols="5" maxlength="150"> </textarea>
+                    </div>
+                    <div class="beer-comments-list"> 
+                        ${mapComments(comment)}
+                    </div>
+                </article>
+            </section>
         </div>
 `
 );
@@ -70,6 +101,20 @@ const mapIngredients = (ingredients) => {
     let yeastTemplate = renderIngredients(yeast);
 
     return maltTemplate + hopsTemplate + yeastTemplate;
+}
+
+const mapComments = (comments) => {
+    let commentsMapped;
+    if(comments.length !==0){
+        commentsMapped = comments.map(comment => (
+            `
+            <p>${comment.comment}</p>
+            `
+        )).join('');
+    } else {
+        commentsMapped = `<p>No comments!</p>`
+    }
+    return commentsMapped;
 }
 
 const renderIngredients = (type) => {

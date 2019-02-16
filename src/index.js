@@ -5,12 +5,12 @@ import './styles/index.scss';
 import './js/api';
 import './js/navbar';
 import './js/beers';
-import './js/comments';
 import './js/likes';
 import './js/moreInfo';
 import './js/detail_beer';
 import './js/yearPicker';
 import './js/spinner';
+import './js/comments';
 
 // import images
 import './images/default.jpg';

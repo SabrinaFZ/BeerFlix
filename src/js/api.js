@@ -51,6 +51,22 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
             let data = await response.json();
             let likes = await data.beer.likes;
             return likes;
+        },
+        addComment: async(query, comment) => {
+            let url = API_URL + `/${query}/comment`;
+            let response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-API-KEY": API_KEY
+                },
+                body: JSON.stringify({
+                    comment: comment
+                })
+            });
+            let data = await response.json();
+            let comments = await data.beer.comments;
+            return comments;
         }
     }
 }

@@ -22,7 +22,7 @@
     .beer-info{
         padding: 1rem;
         background: $primary-color-light;
-        div:nth-last-child(n+3){
+        article:nth-last-child(n+2){
             margin-bottom: 1rem;
         }
         
