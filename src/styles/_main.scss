@@ -1,0 +1,12 @@
+main {
+    padding: 0;
+    #beers{
+        &.show{
+            display: block;
+        }
+        &.hide{
+            display:none;
+        }
+    }
+    
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BeerFlix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="<%= require('./images/favicon.ico') %>" />
+</head>
+<body>
+    <nav>
+        <%= require('html-loader!./templates/navbar.html') %>
+    </nav>
+    <main>
+        <div id="spinner">
+            <%= require('html-loader!./templates/spinner.html') %>
+        </div>
+        <div id="beers">
+            <%= require('html-loader!./templates/yearPicker.html') %>
+            <%= require('html-loader!./templates/beers.html') %>
+        </div>
+    </main>
+</body>
+</html>

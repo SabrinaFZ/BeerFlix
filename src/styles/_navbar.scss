@@ -1,0 +1,167 @@
+picture  {
+    img{
+        max-width: 100%;
+        width: 100%;
+        height: 11%;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+}
+
+// nav styles
+nav {
+
+    #navbar-items{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8rem;
+        
+        #nav-logo {
+            display: flex;
+            align-items: center;
+            font-size: $logo-font-size-small;
+            color: $primary-color-text;
+            .fa-beer{
+                margin-right: 0.5rem;
+            }
+            
+            h1{
+                font-size: $header-font-size;
+                font-weight: 700;
+                display: none;
+                
+                @include tablet{
+                    display: block;
+                }
+                
+                @include desktop{
+                    display: block;
+                }
+                
+                @include largeDesktop{
+                    display: block;
+                }
+            }
+        }
+        
+        #nav-search {
+
+            &.show {
+                display: block;
+            }
+
+            &.hidden {
+                display: none;
+            }
+            
+            &.open-search{
+                #search-bar, .fa-times {
+                    display: block;
+                }
+                
+                .fa-search {
+                    display: block;
+                }
+                
+                @include desktop {
+                    #search-bar {
+                        display: block;
+                    }
+                    
+                    .fa-times {
+                        display: none;
+                    }
+                }
+                
+                @include largeDesktop {
+                    #search-bar {
+                        display: block;
+                    }
+                    
+                    .fa-times {
+                        display: none;
+                    }
+                }
+                
+            }
+            
+            &.close-search {
+                #search-bar, .fa-times {
+                    display: none;
+                }
+                
+                .fa-search {
+                    display: block;
+                }
+                
+                @include desktop {
+                    #search-bar {
+                        display: block;
+                    }
+                    
+                    .fa-times {
+                        display: none;
+                    }
+                    
+                    .fa-search {
+                        display: block;
+                    }
+                }
+                
+                @include largeDesktop {
+                    #search-bar {
+                        display: block;
+                    }
+                    
+                    .fa-times {
+                        display: none;
+                    }
+                    
+                    .fa-search {
+                        display: block;
+                    }
+                }
+            }
+            
+            
+            form {
+                display: flex;
+                align-items: center;
+            }
+            
+            #search-bar {
+                border-radius: 0.2rem; 
+                padding: 0.2rem;
+                border: 0.1rem solid $primary-color-light;
+                
+                @include tablet{
+                    width: 100%;
+                }
+                
+                @include desktop{
+                    width: 100%;
+                }
+                
+                @include largeDesktop{
+                    width: 100%;
+                }
+            }
+            
+            .fa-times {
+                margin-left: 0.5rem;
+                font-size: $icon-font-size;
+            }
+            
+            #search-button{
+                background: none;
+                margin-left: 0.5rem;
+                font-size: $icon-font-size;
+                border: 0;
+                outline: none;
+            }
+            
+        }     
+    }
+}
