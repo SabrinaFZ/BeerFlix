@@ -74,7 +74,7 @@ const renderTemplate = ({ name, description, ingredients, price, likes, comment}
                 </article>
                 <article class="beer-comments">
                     <i class="fas fa-comment"></i>
-                    <span>${comment.length}</span>
+                    <span>${comment ? comment.length : 0}</span>
                 </article>
                 <section class="beer-comments-section">
                     <h3>Comments</h3>
@@ -104,7 +104,7 @@ const mapIngredients = (ingredients) => {
 
 const mapComments = (comments) => {
     let commentsMapped;
-    if(comments.length !==0){
+    if(comments && comments.length !==0){
         commentsMapped = comments.map(comment => (
             `
             <p>${comment.comment}</p>
