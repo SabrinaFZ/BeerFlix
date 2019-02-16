@@ -5,7 +5,6 @@ import api from './api';
 const { addComment } =  api();
 
 const toggle = (element, elementToHide) => {
-    console.dir(elementToHide)
     element.addEventListener('click', () => {
         elementToHide.classList.toggle('show');
     });
