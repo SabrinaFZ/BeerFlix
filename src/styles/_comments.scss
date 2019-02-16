@@ -1,17 +1,4 @@
-.beer-comments-form{
-    width: 100%;
-    padding-top: 0.5rem;
-    textarea {
-        resize: none;
-        width: 100%;
-        outline: none;
-        border: 0.1rem solid $primary-color-text;
-        border-radius: 0.2rem;
-    }
-}
-
-.beer-comments-list{
-    padding: 0.5rem 0;  
+.beer-comments-section{
 
     display: none;
 
@@ -19,12 +6,29 @@
         display: block;
     }
     
-    p{
-        padding: 0.5rem 0;
-        font-style: italic;
-        &:not(:last-child){
-            border-bottom: 0.1rem dashed $primary-color-text;
+    .beer-comments-form{
+        width: 100%;
+        padding-top: 0.5rem;
+        textarea {
+            resize: none;
+            width: 100%;
+            outline: none;
+            border: 0.1rem solid $primary-color-text;
+            border-radius: 0.2rem;
         }
     }
 
+    .beer-comments-list{
+        padding: 0.5rem 0;  
+        
+        p{
+            padding: 0.5rem 0;
+            font-style: italic;
+            &:not(:last-child){
+                border-bottom: 0.1rem dashed $primary-color-text;
+            }
+        }
+
+    }
 }
+

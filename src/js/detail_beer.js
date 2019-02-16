@@ -36,10 +36,9 @@ const addGoBackEvent = () => {
 
 const addCommentsEvents = async (beer) => {
     const commentsButton = document.querySelector('.beer-comments');
-    const commentForm = document.querySelector('#beer-comments-form-textarea');
-    const commentsList = document.querySelector('.beer-comments-list');
-    toggle(commentsButton, commentsList);
-    await postComments(commentForm, beer, commentsList);
+    const commentsSection = document.querySelector('.beer-comments-section');
+    toggle(commentsButton, commentsSection, beer);
+    await postComments(commentsButton, commentsSection, beer);
 }
 
 const renderTemplate = ({ name, description, ingredients, price, likes, comment}) => (
@@ -77,15 +76,15 @@ const renderTemplate = ({ name, description, ingredients, price, likes, comment}
                     <i class="fas fa-comment"></i>
                     <span>${comment.length}</span>
                 </article>
-                <article class="beer-comments-secondary">
+                <section class="beer-comments-section">
                     <h3>Comments</h3>
-                    <div class="beer-comments-form">
+                    <article class="beer-comments-form">
                         <textarea id="beer-comments-form-textarea" rows "4" cols="5" maxlength="150"> </textarea>
-                    </div>
-                    <div class="beer-comments-list"> 
+                    </article>
+                    <article class="beer-comments-list"> 
                         ${mapComments(comment)}
-                    </div>
-                </article>
+                    </article>
+                </section>
             </section>
         </div>
 `
