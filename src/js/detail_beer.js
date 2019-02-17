@@ -80,6 +80,7 @@ const renderTemplate = ({ name, description, ingredients, price, likes, comment}
                     <h3>Comments</h3>
                     <article class="beer-comments-form">
                         <textarea id="beer-comments-form-textarea" rows "4" cols="5" maxlength="150"> </textarea>
+                        <p class="beer-comments-info">Pulse enter to post the comment</p>
                     </article>
                     <article class="beer-comments-list"> 
                         ${mapComments(comment)}
@@ -111,7 +112,7 @@ const mapComments = (comments) => {
             `
         )).join('');
     } else {
-        commentsMapped = `<p>No comments!</p>`
+        commentsMapped = '';
     }
     return commentsMapped;
 }

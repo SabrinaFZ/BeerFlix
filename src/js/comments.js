@@ -10,17 +10,18 @@ const toggle = (element, elementToHide) => {
     });
 }
 
-const postComments = async (commentButton, commentsSection, { beerId }) => {
+const postComments = async (commentButton, commentsSection, { beerId}) => {
     let textarea = commentsSection.children[1].children[0];
     textarea.addEventListener('keyup', async e => {
         let key = e.keyCode;
-        if (key === 13) {
-            let comments = await sendRequest(e, beerId, textarea.value);
+        if (key === 13 && textarea.value.trim().length > 0) {
+            await sendRequest(e, beerId, textarea.value);
             let beersList = commentsSection.children[2];
             let newComment = document.createElement('p');
             newComment.innerHTML = textarea.value;
             beersList.appendChild(newComment);
             commentButton.lastElementChild.innerHTML = parseInt(commentButton.lastElementChild.innerHTML) + 1;
+            textarea.value = '';
         }
     });;
 }
