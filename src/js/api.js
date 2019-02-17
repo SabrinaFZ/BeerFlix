@@ -1,4 +1,4 @@
-'use script';
+'use scrict';
 
 const API_KEY = '9X7100H-M6B481J-NHJZJTK-V7PQZMG';
 
