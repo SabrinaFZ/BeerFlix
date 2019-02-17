@@ -8,7 +8,22 @@
     margin-bottom: 2rem;
     border-radius: 0.2rem;
     align-items: center;
-
+    
+    @include tablet {
+        padding: 2rem;
+        grid-template-columns: 10rem auto;
+    }
+    
+    @include desktop {
+        padding: 2rem;
+        grid-template-columns: 10rem auto;
+    }
+    
+    @include largeDesktop {
+        padding: 2rem;
+        grid-template-columns: 10rem auto;
+    }
+    
     .go-back-button{
         padding-right: 1rem;
         align-self: center;
@@ -16,10 +31,31 @@
         a{
             font-size: $logo-font-size;
         }
+        
+        @include desktop {
+            transition: all .1s ease-in-out;
+        }
+        
+        @include largeDesktop {
+            transition: all .1s ease-in-out;
+        }
+        
+        @include desktop {
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+        
+        @include largeDesktop {
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
     }
     
     
     .beer-info{
+        display: block;
         padding: 1rem;
         background: $primary-color-light;
         article:nth-last-child(n+2){
@@ -37,12 +73,20 @@
                 font-weight: 700;
             }
         }
+        
         .beer-desc {
             p{
                 line-height: 1.2rem;
                 font-size: $primary-font-size-small;
+                @include tablet {
+                    font-size: $primary-font-size;
+                }
+                @include desktop {
+                    font-size: $primary-font-size;
+                }
             }
         }
+        
         .beer-ingredients{
             line-height: 1.2rem;
             
@@ -52,10 +96,31 @@
             
             li {
                 font-size: $primary-font-size-small;
+                @include tablet {
+                    font-size: $primary-font-size;
+                }
+                @include desktop {
+                    font-size: $primary-font-size;
+                }
+                @include largeDesktop {
+                    font-size: $primary-font-size;
+                }
             }
             .fa-circle {
                 margin-right: 0.2rem;
                 font-size: $icon-circle-font-size;
+                @include tablet {
+                    margin-right: 0.5rem;
+                    font-size: $icon-circle-font-size;
+                }
+                @include desktop {
+                    margin-right: 0.5rem;
+                    font-size: $icon-circle-font-size;
+                }
+                @include largeDesktop {
+                    margin-right: 0.5rem;
+                    font-size: $icon-circle-font-size;
+                }
             }
         }
         
@@ -71,93 +136,27 @@
             text-align: center;
             .fas {
                 cursor: pointer;
-                transition: all .1s ease-in-out;
                 
-                &:hover {
-                    transform: scale(1.1);
+                @include desktop {
+                    transition: all .1s ease-in-out;
                 }
-            }
-        }
-        
-        .beer-info {
-            display: block;
-        }
-        
-    }
-    
-    @include tablet {
-        padding: 2rem;
-        grid-template-columns: 10rem auto;
-        
-        .beer-info{
-            .beer-desc {
-                p{
-                    font-size: $primary-font-size;
-                }
-            }
-            
-            .beer-ingredients{
                 
-                li {
-                    font-size: $primary-font-size;
+                @include largeDesktop {
+                    transition: all .1s ease-in-out;
                 }
-                .fa-circle {
-                    margin-right: 0.5rem;
-                    font-size: $icon-circle-font-size;
-                }
-            }
-        }
-        
-        
-    }
-    
-    @include desktop {
-        padding: 2rem;
-        grid-template-columns: 10rem auto;
-        
-        .beer-info{
-            .beer-desc {
-                p{
-                    font-size: $primary-font-size;
-                }
-            }
-            
-            .beer-ingredients{
                 
-                li {
-                    font-size: $primary-font-size;
+                @include desktop {
+                    &:hover {
+                        transform: scale(1.1);
+                    }
                 }
-                .fa-circle {
-                    margin-right: 0.5rem;
-                    font-size: $icon-circle-font-size;
-                }
-            }
-        }
-        
-        
-    }
-    
-    @include largeDesktop {
-        padding: 2rem;
-        grid-template-columns: 10rem auto;
-
-        .beer-info{
-            .beer-desc {
-                p{
-                    font-size: $primary-font-size;
-                }
-            }
-            
-            .beer-ingredients{
                 
-                li {
-                    font-size: $primary-font-size;
-                }
-                .fa-circle {
-                    margin-right: 0.5rem;
-                    font-size: $icon-circle-font-size;
+                @include largeDesktop {
+                    &:hover {
+                        transform: scale(1.1);
+                    }
                 }
             }
-        }
+        }   
     }
 }

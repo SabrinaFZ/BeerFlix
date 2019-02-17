@@ -1,12 +1,12 @@
 #no-beer-list{
     text-align:center;
     margin-top: 2rem;
-
+    
     i{
         font-size: $logo-font-size*2;
         padding: 2rem;
     }
-
+    
     p{
         font-size: $header-font-size;
         font-weight: 800;
@@ -32,6 +32,15 @@
             background:$primary-color-light;
             border: .1rem solid $primary-color-light;
             width: 30%;
+            @include tablet {
+                width: 20%;
+            }
+            @include desktop {
+                width: 10%;
+            }
+            @include largeDesktop {
+                width: 10%;
+            }
         }        
     }
     
@@ -56,31 +65,27 @@
             .fa-chevron-right{
                 font-size: $logo-font-size;
                 color: $primary-color-dark;
+                
+                @include desktop {
+                    transition: all .1s ease-in-out;
+                }
+                
+                @include largeDesktop {
+                    transition: all .1s ease-in-out;
+                }
+                
+                @include desktop {
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+                
+                @include largeDesktop {
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
             }
-        }
-    }
-
-    @include tablet{
-        .beer-img {         
-            img{
-                width: 20%;
-            }        
-        }
-    }
-    
-    @include desktop{
-        .beer-img {         
-            img{
-                width: 10%;
-            }        
-        }
-    }
-    
-    @include largeDesktop{
-        .beer-img {         
-            img{
-                width: 10%;
-            }        
         }
     }
 }

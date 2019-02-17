@@ -9,9 +9,8 @@ picture  {
     }
 }
 
-// nav styles
 nav {
-
+    
     #navbar-items{
         display: flex;
         justify-content: space-between;
@@ -47,11 +46,11 @@ nav {
         }
         
         #nav-search {
-
+            
             &.show {
                 display: block;
             }
-
+            
             &.hidden {
                 display: none;
             }
@@ -94,6 +93,14 @@ nav {
                 
                 .fa-search {
                     display: block;
+                    
+                    @include desktop {
+                        display: block;
+                    }
+                    
+                    @include largeDesktop {
+                        display: block;
+                    }
                 }
                 
                 @include desktop {
@@ -105,9 +112,6 @@ nav {
                         display: none;
                     }
                     
-                    .fa-search {
-                        display: block;
-                    }
                 }
                 
                 @include largeDesktop {
@@ -117,10 +121,6 @@ nav {
                     
                     .fa-times {
                         display: none;
-                    }
-                    
-                    .fa-search {
-                        display: block;
                     }
                 }
             }
